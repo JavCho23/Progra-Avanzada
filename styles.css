@@ -1,0 +1,29 @@
+h1{
+    color: lightblue;
+    text-align: center;
+    border-top: lightcyan solid 3px ;
+    border-bottom: rgb(100, 180, 15) solid 3px;
+}
+section{
+    text-align: justify
+}
+body{
+    background: lightcoral;
+    
+}
+span{
+    color: lightcyan;
+    font-weight: bold;
+}
+a{
+    color: lightblue;
+}
+table{
+    /* border-color: lightskyblue;
+    border-width: 5px;
+    border-style: dotted; */
+    border-collapse: collapse;
+}
+td{
+    border: lightskyblue dotted 5px; 
+}
