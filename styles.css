@@ -2,7 +2,7 @@ h1{
     color: lightblue;
     text-align: center;
     border-top: lightcyan solid 3px ;
-    border-bottom: rgb(100, 180, 15) solid 3px;
+    border-bottom: rgb(157, 218, 223) solid 3px;
 }
 section{
     text-align: justify
@@ -23,6 +23,7 @@ table{
     border-width: 5px;
     border-style: dotted; */
     border-collapse: collapse;
+    width: 300px;
 }
 td{
     border: lightskyblue dotted 5px; 
