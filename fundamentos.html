@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Fundamentos de Javascript</title>
+</head>
+<body>
+    <h1>Fundamentos de Javascript</h1>
+    <p>DOM: Document Object Model</p>
+    <script  type="text/javascript">
+        document.write("<ol>");
+        document.write("<li>Es interpretado</li>")    
+        document.write("<li>Débilmente tipado</li>")
+        document.write("<li>Es un lenguaje script</li>")
+        document.write("</ol>")
+        for (let i = 0; i < 12; i++) {
+            if (i % 2 == 0) {
+                document.write('<p style="color:blue; ">Parrafo ' + i + ': es par </p>')
+            }else{
+                document.write('<p style="color:red; ">Parrafo ' + i + ': es impar </p>')
+            }   
+            
+        }
+    </script>
+    <div>
+        <a href="index.html">Retornar</a>
+        <a href="https://www.youtube.com/watch?v=DwXWJZVSTb4">Cancion de Javier</a>
+        <a href="https://Google.com">Buen sitio</a>
+    </div>
+</body>
+</html>
