@@ -1,0 +1,65 @@
+/* Solo Javier */
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    background: rgb(14, 21, 92);
+    color: white;
+  }
+  
+  h1 {
+      border-bottom: 5px solid rgba(97,149,189,1);
+      border-top: 5px solid rgba(97,149,189,1);
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      width: 100%; 
+  }
+  
+  form{
+      padding: 1em;
+      background-color: rgb(90, 90, 90); 
+      border-radius: 0.5em;
+      width: 100%;
+      max-width: 500px;
+  
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  label, input {
+    margin: 0.5em;
+    padding: 0.5em;
+  }
+  
+  input {
+    flex: auto;
+  }
+  
+  label {
+    width: 5em;
+  }
+  
+  div {
+   
+  }
+  
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    background: orange;
+    border: none;
+    padding: 1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+  }
+  
+  a {
+    color: white; 
+    text-decoration: none;
+    padding: 1em;
+  }
+  

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <form name="frmEgresos" action="#" method="post">
+        <div>Tipo <select name="cbdTipo"  id="cdbTipo">
+            <option value="Pasaje">Pasaje</option>
+            <option value="Comida">Comida</option>
+            <option value="Otros">Otros</option>
+        </select></div>
+        <div>Monto <input type="number" name="txtMonto" id="txtMonto"></div>
+        <div><input name="btnRegistrar" type="button" value="Registrar" onclick="registrar()"></div>
+    </form>
+    <div id="listadoEgresos">
+    </div>
+    <div id="Maxmin">
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
