@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Pagina 3</title>
+</head>
+<body>
+    <header>
+        <div class="cover">
+            <h1>Programacion Avanzada</h1>
+            <h2 class="cover__acotacion">EPICI ♥</h2>
+        </div>
+        <nav>
+            <ul class="nav">
+               <a href="index.html"><li class="nav__item">Pagina 1</li></a> 
+               <a href="pagina2.html"><li class="nav__item">Pagina 2</li></a> 
+               <a href="pagina3.html"><li class="nav__item">Pagina 3</li></a> 
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <h2>Registrar Personas</h2>
+        <form class="form" action="#">
+            <div class="form__option"> 
+                    <label class="form__label">Nombre</label> <input type="text" name="nombre" id="nombre">
+            </div>
+            <div class="form__option"> 
+                    <label class="form__label">Edad</label> <input type="number" name="edad" id="edad">
+            </div>
+            <div class="form__option"> 
+                    <label class="form__labels">Sexo</label> <select name="sexo" id="sexo">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                    </select>
+            </div>
+            <div class="form__option"> 
+                    <input type="button" onclick="agregar()" value="Agregar">
+                <input type="reset" value="Limpiar">
+            </div>
+            
+        </form>
+        <div class="lista" id="lista">
+
+        </div>
+    </div>
+    <footer class="footer">
+        <h4 class="footer__item">Todos los derechos Reservados</h4>
+        <h4 class="footer__item" > Javier Arturo Chávez Sialer  </h4>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
