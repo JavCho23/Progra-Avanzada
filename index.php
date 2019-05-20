@@ -8,9 +8,16 @@
 </head>
 <body>
     <h1>Hola php</h1>
+    <nav>
+        <ul>
+        <li><a href="ejercicio.php">Ejemplo Basico</a></li>
+        <li><a href="ejemplo.php">Ejemplo2</a></li>
+        </ul>
+    </nav>
     <?php
-        $vez = 1;
-        echo 'Este es mi ejemplo ', $vez, ' en php';
+        $vez = 10;
+        echo 'Este es mi ejemplo ', $vez , ' en php';
+        echo '<div>Este es mi ejemplo ', $vez , ' en php </div>';
     ?>
 </body>
 </html>
