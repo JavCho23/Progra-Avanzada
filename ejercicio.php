@@ -26,8 +26,6 @@
   
     echo '<table>';
     ?>
-    <style>
-    
-    </style>
+  
 </body>
 </html>
