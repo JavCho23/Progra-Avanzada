@@ -11,7 +11,7 @@
     <nav>
         <ul>
         <li><a href="ejercicio.php">Ejemplo Basico</a></li>
-        <li><a href="ejemplo.php">Ejemplo2</a></li>
+        <li><a href="get.php">Get </a></li>
         </ul>
     </nav>
     <?php
