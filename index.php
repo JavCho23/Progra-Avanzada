@@ -12,6 +12,8 @@
         <ul>
         <li><a href="ejercicio.php">Ejemplo Basico</a></li>
         <li><a href="get.php">Get </a></li>
+        <li><a href="post.php">Post </a></li>
+        <li><a href="post2.php">Post 2</a></li>
         </ul>
     </nav>
     <?php
