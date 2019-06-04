@@ -1,5 +1,5 @@
 <?php
-    $conexcion = new PDO('mysql:host=localhost; dbname=progra_avanzada',
-    'root',''
-    ,array(PDO::MYSQL_ATTR_INIT_COMAND=> 'SET NAMES \ 'UTF8\''));
+$conexion = new PDO('mysql:host=localhost; dbname=mydatabase',
+'root',''
+,array(PDO::MYSQL_ATTR_INIT_COMMAND=> 'SET NAMES \'UTF8\''));
 ?>

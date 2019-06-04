@@ -1,50 +1,43 @@
 <?php
-    $nombres = '';
-    $apellidoPaterno ='';
-    $apellidoMaterno = '';
-    $DNI = '';
-    $celular ='';
-    $correo = '';
-    $mensaje='';
-    $sql='';
+ $nombres = '';
+ $apellidoPaterno = '';
+ $apellidoMaterno = '';
+ $DNI = '';
+ $celular = '';
+ $correo = '';
+ $vigencia = '';
+ $msje = '';
+ $sql = '';
 
-if(isset($_POST['txtNombres']) == true &&
-    isset($_POST['txtApellidoPat']) == true &&
-    isset($_POST['txtApellidoMat']) == true &&
-    isset($_POST['txtDni']) == true &&
-    isset($_POST['txtCelular']) == true &&
-    isset($_POST['txtCorreo']) == true){
+ if(isset($_POST['txtNombres'], $_POST['txtApellidoPaterno'], $_POST['txtApellidoMaterno'], $_POST['txtDNI'],$_POST['txtCelular'],$_POST['txtCorreo'] ){
 
     $nombres = $_POST['txtNombres'];
-    $apellidoPaterno = $_POST['txtApellidoPat'];
-    $apellidoMaterno = $_POST['txtApellidoMat'];
-    $DNI = $_POST['txtDni'];
+    $apellidoPaterno = $_POST['txtApellidoPaterno'];
+    $apellidoMaterno = $_POST['txtApellidoMaterno'];
+    $DNI = $_POST['txtDNI'];
     $celular = $_POST['txtCelular'];
     $correo = $_POST['txtCorreo'];
 
-    $sql = 'INSERT INTO personal(nombres, apellidosPaternos, apellidosMaternos, DNI, Celular, Correo, Vigencia)' . 
-        'VALUES(\'' . $nombres . '\' , \'' . $apellidoPaterno . '\', \'' . $apellidoMaterno . '\' , \'' . $DNI . '\' , \'' . $celular . '\',
-    \'' . $correo . '\',1)';
+    $sql = 'INSERT INTO Personal(Nombres,ApellidoPaterno,
+    ApellidoMaterno,DNI,Celular,Correo,Vigencia)' . 
+    'VALUES(\''. $nombres . '\', \''. $apellidoPaterno . '\',\'' . 
+    $apellidoMaterno . '\', \'' . $DNI . '\',\'' . $celular. '\',\''
+    . $correo . '\',\'' . $vigencia . '\' )';
 
     try{
         include('conectar.php');
-        $cantidad = $conexion -> exec($sql);
+        $cantidad = $conexion->exec($sql);
         if($cantidad > 0){
-            $mensaje = 'Personal registrado exitosamente';
-            // header('location:personal.php');
+            //$msje = 'Personal registrado exitosamente';
+            header('location:personal.php');
         }else{
-            $mensaje ='NO SE REGISTRO';
+            $msje = 'No se puede registrar el personal';
         }
-    }catch( Exception $e){  
-        $mensaje = 'No se pudo realizar la operacion';
-        $mensaje = $mensaje . $e->getMessage();
+    }catch(Exception $e){
+        $msje = 'No se puede realizar la operacion';
+        $msje = $msje . $e->getMessage();
     }
-
-}
-    
-
-    
-
+    }
 ?>
 
 <!DOCTYPE html>
@@ -56,34 +49,16 @@ if(isset($_POST['txtNombres']) == true &&
     <title>Document</title>
 </head>
 <body>
-    <h1>NUEVO</h1>
-    <?php
-    if($mensaje != ''{
-        echo '<div>' . $mensaje . '</div>';
-    }
-    ?>
-    <form action="personalnuevo.php" method="post"> 
-        <div> <label>Nombres: </label>  
-            <input type="text" name="txtNombres" value="<?=$nombres?>">
-        </div>
-        <div> <label>Apellido Paterno: </label>
-            <input type="text" name="txtApellidoPat" value="<?=$apellidoPaterno?>">
-        </div>
-        <div> <label>Apellido Materno: </label> 
-            <input type="text" name="txtApellidoMat" value="<?=$apellidoPaterno?>">
-        </div>
-        <div> <label>DNI: </label> 
-            <input type="number" name="txDni" value="<?=$DNI?>">
-        </div>
-        <div> <label>Celular: </label> 
-            <input type="number" name="txtCelular" value="<?=$celular?>">
-        </div>
-        <div> <label>Correo: </label> 
-            <input type="text" name="txtCorreo" value="<?=$correo?>">
-        </div><br>
-
-        <div><input type="submit" name="btnRegistrar" value="REGISTRAR"></div><br>
-        <div><a href="personal.php">REGRESAR</a></div>
+    <h1>Nuevo Personal</h1>
+    <form action="personalnuevo.php"method="post">
+    <div>Nombres <input type="text"name= "txtNombres" value="<?=$nombres?>"></div>
+    <div>Apellido Paterno <input type="text"name= "txtApellidoPaterno" value="<?=$apellidoPaterno?>"></div>
+    <div>Apellido Materno <input type="text"name= "txtApellidoMaterno" value="<?=$apellidoMaterno?>"></div>
+    <div>DNI<input type="text"name= "txtDNI" value="<?=$DNI?>"></div>
+    <div>Celular<input type="text"name= "txtCelular" value="<?=$celular?>"></div>
+    <div>Correo<input type="text"name= "txtCorreo" value="<?=$correo?>"></div>
+    <div>Vigencia<input type="text"name= "vigencia" value="<?=$vigencia?>"></div>
+    <div><input type="submit"name="btnRegistrar"value="Registrar"></div>
     </form>
 </body>
 </html>
