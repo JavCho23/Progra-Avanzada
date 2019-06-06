@@ -40,47 +40,39 @@
             $msje = $e->msje . 'No se pudo acceder a la base de datos';
         }
     }else{
-        if(isset( $_POST['hCodigo'])== true && 
-        isset($_POST['txtNombres'])== true &&
-        isset($_POST['txtApellidoPaterno'])== true &&
-        isset($_POST['txtApellidoMaterno'])== true &&
-        isset($_POST['txtDNI'])== true &&
-        isset($_POST['txtCelular'])== true &&
-        isset($_POST['txtCorreo'])== true){
+        if(!empty($_POST)){
 
-            $codigo = $_POST['hCodigo'];
-            $nombres = $_POST['txtNombres'];
-            $apellidoPaterno = $_POST['txtApellidoPaterno'];
-            $apellidoMaterno = $_POST['txtApellidoMaterno'];
-            $DNI = $_POST['txtDNI'];
-            $celular = $_POST['txtCelular'];
-            $correo = $_POST['txtCorreo'];
-            if(isset($_POST['chkVigencia']) == true){
-                $vigencia = true;
-            }
+                $codigo = $_POST['hCodigo'];
+                $nombres = $_POST['txtNombres'];
+                $apellidoPaterno = $_POST['txtApellidoPaterno'];
+                $apellidoMaterno = $_POST['txtApellidoMaterno'];
+                $DNI = $_POST['txtDNI'];
+                $celular = $_POST['txtCelular'];
+                $correo = $_POST['txtCorreo'];
+                if(isset($_POST['chkVigencia']) == true){
+                    $vigencia = true;
+                }
 
-    $sql = 'UPDATE Personal SET Nombres = \''. $nombres .
-            '\', ApellidoPaterno = \''. $apellidoPaterno .
-            '\', ApellidoMaterno = \'' . $apellidoMaterno .
-            '\', DNI =  \'' . $DNI . '\', Celular = \'' . 
-            $celular. '\', Correo = \'' . $correo . '\', Vigencia = ' .
-            ( $vigencia == true ? 1 : 0)
-            . ' WHERE Codigo = ' . $codigo ;
+                $sql = 'UPDATE Personal SET Nombres = \''. $nombres .
+                        '\', ApellidoPaterno = \''. $apellidoPaterno .
+                        '\', ApellidoMaterno = \'' . $apellidoMaterno .
+                        '\', DNI =  \'' . $DNI . '\', Celular = \'' . 
+                        $celular. '\', Correo = \'' . $correo . '\', Vigencia = ' .
+                        ( $vigencia == true ? 1 : 0)
+                        . ' WHERE Codigo = ' . $codigo ;
 
-    try{
-        echo $sql;
-        include( 'conectar.php');
-        $cantidad = $conexion->exec($sql);
-        if($cantidad > 0){
-            //$msje = 'Personal registrado exitosamente';
-            header( 'location:personal.php');
-        }else{
-            $msje = 'No se puede registrar el personal';
-        }
-    }catch(Exception $e){
-        $msje = 'No se puede realizar la operacion';
-        $msje = $msje . $e->getMessage();
-    }
+                try{
+                    include( 'conectar.php');
+                    $cantidad = $conexion->exec($sql);
+                    if($cantidad  > 0 ){
+                        header( 'location:personal.php');
+                    }else{
+                        $msje = 'No se han actualizado datos del  personal, probablemente no se han cambiado los datos';
+                    }
+                }catch(Exception $e){
+                    $msje = 'No se puede realizar la operacion';
+                    $msje = $msje . $e->getMessage();
+                }
         }else{
             $msje = 'No llegaron los parametros necesarios';
         }
