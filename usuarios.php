@@ -8,15 +8,21 @@
     <title>Gestion de Personal</title>
 </head>
 <body>
-    <h1>Gestion de Personal</h1>
-    <div><a href="personalnuevo.php">Nuevo</a></div>
+    <h1>Gestion de Usuarios</h1>
+    <div><a href="usuarionuevo.php">Nuevo</a></div>
  
     <ul class="list">
-        <li class="list__item"> <span>Nº</span> <span>Nombres</span> <span>DNI</span> <span> Opciones</span></li>
+        <li class="list__item"> 
+                <span>Nº</span> 
+                <span>Nombres</span> 
+                <span>Usuario</span> 
+                <span>Opciones</span>
+        </li>
     <?php
 			 $sql = 'SELECT P.Codigo, P.Nombres, P.ApellidoPaterno,
-					 P.ApellidoMaterno, P.DNI, P.Vigencia
-					 FROM personal P ORDER BY P.apellidoPaterno, P.apellidoMaterno';  
+					 P.ApellidoMaterno, U.nombre_usuario
+					 FROM personal P Join usuario U on P.codigo = u.codigoPersonal
+                     ORDER BY P.apellidoPaterno, P.apellidoMaterno';  
 					 try{
 					   require 'conectar.php';
 					   $datos = $conexion->query($sql);
@@ -25,8 +31,7 @@
                           
                        ?>
                        
-                           <li class="list__item"> <span><?=$fila['Codigo'] ?></span> <span><?=$fila['Nombres'] ?></span> 
-                           <span><?=$fila['DNI'] ?></span> <span> <a href="personaleditar.php">Editar</a></span> </li>
+                           <li class="list__item"> <span><?=$fila['Codigo'] ?></span> <span><?=$fila['Nombres'] ?></span> <span> <?= $fila['nombre_usuario'] ?></span> <span> <a href="personaleditar.php">Editar</a></span> </li>
                        
                         <?php
 						   $i++;

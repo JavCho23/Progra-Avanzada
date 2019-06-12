@@ -4,3 +4,10 @@
 .neio{
     color: black
 }
+.list__item:nth-child(1){
+    font-weight: bold;
+}
+ .list__item{
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 2fr 2fr;
+} 

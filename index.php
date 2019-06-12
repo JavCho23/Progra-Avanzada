@@ -10,6 +10,7 @@
     <h1>PHP y MySQL</h1>
     <ul>
     <li><a href="personal.php">Gestion de personal</a></li>
+    <li><a href="usuarios.php">Gestion de Usuarios</a></li>
     </ul>
 </body>
 </html>
