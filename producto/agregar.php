@@ -6,7 +6,7 @@ if (isset($_POST['name'],$_POST['precio'],$_POST['precioMinimo'])) {
         $precio = $_POST['precio'];
         $precioMinimo = $_POST['precioMinimo'];
         $tipo = $_POST['tipo'];
-        $negociable = ($_POST['negociable']) ? 1 : 0 ;
+        $negociable = (isset($_POST['negociable'])) ? true : false ;
         $categoria = $_POST['categoria'];
         $sql = "INSERT INTO producto(nombre,precio,precioMinimo,tipo,negociable,vigencia,codigoCategoria)
         values('$name','$precio','$precioMinimo','$tipo','$negociable',1,'$categoria')";
@@ -14,7 +14,7 @@ if (isset($_POST['name'],$_POST['precio'],$_POST['precioMinimo'])) {
             require '../conectar.php';
             $aux = $conexion->exec($sql);
             if ($aux > 0) {
-                // header('location:listar.php');
+                 header('location:listar.php');
             }
         } catch (PDOexception $e) {
             echo $e->getMessage();

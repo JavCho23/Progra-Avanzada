@@ -30,7 +30,7 @@ include '../header.php';
                         <span><?=$tupla['tipo']=='B' ? 'Bien': 'Servicio' ?></span>
                         <span><?=$tupla['vigencia'] ? 'Activo': 'Inactivo' ?></span>
                         <span><?=$tupla['categoriaNombre']?></span>
-                        <span><a href="editar.php?codigo=<?=$tupla['codigoCategoria']?>">Editar</a></span>
+                        <span><a href="editar.php?codigo=<?=$tupla['codigo']?>">Editar</a></span>
                         <span><button>Eliminar</button></span>
                     </li>
                 <?php
