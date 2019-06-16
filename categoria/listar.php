@@ -2,6 +2,7 @@
 
 include '../header.php';
 ?>
+<a class="back" href="../index.php" title="Ir hacia atras">Volver</a>
 <div class="content">
     <a href="agregar.php" class="agregar">Agregar Nueva</a>
     <ul class="list">

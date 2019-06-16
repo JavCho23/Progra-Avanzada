@@ -2,6 +2,8 @@
 
 include '../header.php';
 ?>
+
+<a class="back" href="../index.php" title="Ir hacia atras">Volver</a>
 <div class="content">
     <a href="agregar.php" class="agregar">Agregar Nueva</a>
     <ul class="list">
@@ -15,7 +17,7 @@ include '../header.php';
         <span>Operaciones</span>
         </li>
         <?php
-            $sql= 'Select P.*, C.codigo , C.nombre as categoriaNombre from producto P INNER JOIN categoria C ON C.codigo=P.codigoCategoria';
+            $sql= 'Select P.* ,C.codigo as codigoCategoria, C.nombre as categoriaNombre from producto P INNER JOIN categoria C ON C.codigo=P.codigoCategoria';
             try {
                 require '../conectar.php';
                 $data = $conexion->query($sql);
@@ -28,7 +30,7 @@ include '../header.php';
                         <span><?=$tupla['tipo']=='B' ? 'Bien': 'Servicio' ?></span>
                         <span><?=$tupla['vigencia'] ? 'Activo': 'Inactivo' ?></span>
                         <span><?=$tupla['categoriaNombre']?></span>
-                        <span><a href="">Editar</a></span>
+                        <span><a href="editar.php?codigo=<?=$tupla['codigoCategoria']?>">Editar</a></span>
                         <span><button>Eliminar</button></span>
                     </li>
                 <?php

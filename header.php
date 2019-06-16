@@ -9,6 +9,5 @@
 </head>
 <body>
     <h1 class="title">Control de Productos</h1>
-    <a class="back" href="<?=$_SERVER['HTTP_REFERER']?>" title="Ir hacia atras">Volver</a>
 </body>
 </html>

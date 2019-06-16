@@ -17,6 +17,8 @@ if (isset($_POST['name'],$_POST['desc'])) {
     }
 }
 ?>
+<a class="back" href="listar.php" title="Ir hacia atras">Volver</a>
+<a class="back" href="" title="Ir hacia atras">Volver</a>
 <form action="agregar.php" method="post">
 <label for="name">Nombre</label>
 <input type="text" name="name" id="name">

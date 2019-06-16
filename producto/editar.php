@@ -1,25 +1,20 @@
 <?php
-include '../header.php';
-
-if (isset($_POST['name'],$_POST['precio'],$_POST['precioMinimo'])) {
-        $name = $_POST['name'];
-        $precio = $_POST['precio'];
-        $precioMinimo = $_POST['precioMinimo'];
-        $tipo = $_POST['tipo'];
-        $negociable = ($_POST['negociable']) ? 1 : 0 ;
-        $categoria = $_POST['categoria'];
-        $sql = "INSERT INTO producto(nombre,precio,precioMinimo,tipo,negociable,vigencia,codigoCategoria)
-        values('$name','$precio','$precioMinimo','$tipo','$negociable',1,'$categoria')";
+    if (isset($_GET['codigo'])) {
+        $codigo=$_GET['codigo'];
+        $sql="SELECT * FROM producto WHERE producto.codigo='$codigo'";
         try {
             require '../conectar.php';
-            $aux = $conexion->exec($sql);
-            if ($aux > 0) {
-                // header('location:listar.php');
-            }
+            $producto = $conexion->query($sql);
+            $nombre = $producto['nombre'];
+            $precio = $producto['precio'];
+            $precioMinimo = $producto['precioMinimo'];
+            $negociable = $producto['negociable'];
+            $tipo = $producto['tipo'];
         } catch (PDOexception $e) {
             echo $e->getMessage();
+        }
     }
-}
+
 ?>
 
 <a class="back" href="listar.php" title="Ir hacia atras">Volver</a>
@@ -46,7 +41,7 @@ if (isset($_POST['name'],$_POST['precio'],$_POST['precioMinimo'])) {
     </div>
     <div class="option__item">
         <label for="desc">Precio Mínimo</label>
-        <input type="number" name="precioMinimo">
+        <input type="number" name="precioMinimo" step="0.01">
     </div>
     <div class="option__item">
         <label for="desc">Categoria</label>
@@ -71,6 +66,3 @@ if (isset($_POST['name'],$_POST['precio'],$_POST['precioMinimo'])) {
     </div>
 
 </div>
-
-<button type="submit">Registrar</button>
-</form>
