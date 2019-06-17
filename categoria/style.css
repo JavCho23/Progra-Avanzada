@@ -1,0 +1,29 @@
+.title{
+    text-align: center;
+}
+.enlaces {
+    display: flex;
+    justify-content: space-around;
+}
+.back,button{
+    text-decoration: none;
+    color: black;
+    padding: 0.3em 1em;
+    border: solid 0.1em black;
+    border-radius: 40%;
+}
+
+.list{
+  text-align: center;
+}
+.list__item{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 3fr 1fr 3fr ;
+    margin: 2em 0em;
+}
+
+form{
+   margin: 5%;
+
+}

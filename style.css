@@ -1,0 +1,16 @@
+.title{
+    text-align: center;
+}
+.nav{
+    display: flex;
+    justify-content: space-around;
+}
+.nav__item {
+    display: block;
+    padding: 2em;
+}
+.nav__item a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}

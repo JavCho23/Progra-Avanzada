@@ -90,7 +90,7 @@
             $precio = $_POST['precio'];
             $precioMinimo = $_POST['precioMinimo'];
             $tipo = $_POST['tipo'];
-            $negociable = (isset($_POST['negociable'])) ? true : false ;
+            $negociable = (isset($_POST['negociable'])) ? 1 : 0 ;
             $vigencia = (isset($_POST['vigencia'])) ? true : false ;
             $sql = "UPDATE  producto
                     set nombre = '$name', 

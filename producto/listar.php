@@ -12,9 +12,12 @@ if (isset($_POST['buscar'])) {
 }
 ?>
 
-<a class="back" href="../index.php" title="Ir hacia atras">Volver</a>
+<div class="enlaces">
+    <a class="back" href="../index.php" title="Ir hacia atras">Volver</a>
+    <a  class="back" href="agregar.php" class="agregar">Agregar Nueva</a>
+</div>
 <div class="content">
-    <a href="agregar.php" class="agregar">Agregar Nueva</a>
+    
     <form action="listar.php" method="post">
         <label for="buscar">Ingrese Nombre</label>
         <input type="text" name="buscar">
@@ -37,15 +40,17 @@ if (isset($_POST['buscar'])) {
                 $data = $conexion->query($sql);
                 foreach ($data as $tupla) { 
                     ?>
-                    <li>
+                    <li class='list__item'>
                         <span><?=$tupla['codigo']?></span>
                         <span><?=$tupla['nombre']?></span>
                         <span><?=$tupla['precio']?></span>
                         <span><?=$tupla['tipo']=='B' ? 'Bien': 'Servicio' ?></span>
                         <span><?=$tupla['vigencia'] ? 'Activo': 'Inactivo' ?></span>
                         <span><?=$tupla['categoriaNombre']?></span>
-                        <span><a href="editar.php?codigo=<?=$tupla['codigo']?>">Editar</a></span>
-                        <span><a href="eliminar.php?codigo=<?=$tupla['codigo']?>" >Eliminar</a></span>
+                        <span><a class="back" href="editar.php?codigo=<?=$tupla['codigo']?>">Editar</a>
+                        <a class="back" href="eliminar.php?codigo=<?=$tupla['codigo']?>" >Eliminar</a>
+                        </span>
+                        
                     </li>
                 <?php
                 }

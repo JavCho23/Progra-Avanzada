@@ -2,9 +2,13 @@
 
 include '../header.php';
 ?>
-<a class="back" href="../index.php" title="Ir hacia atras">Volver</a>
+<div class="enlaces">
+    <a class="back" href="../index.php" title="Ir hacia atras">Volver</a>
+    <a class='back' href="agregar.php" class="agregar">Agregar Nueva</a>
+</div>
+
 <div class="content">
-    <a href="agregar.php" class="agregar">Agregar Nueva</a>
+    
     <ul class="list">
         <li class="list__item">
         <span>Codigo</span>
@@ -19,13 +23,13 @@ include '../header.php';
                 require '../conectar.php';
                 $data = $conexion->query($sql);
                 foreach ($data as $tupla) { ?>
-                    <li>
+                    <li class='list__item'>
                         <span><?=$tupla['codigo']?></span>
                         <span><?=$tupla['nombre']?></span>
                         <span><?=$tupla['descripcion']?></span>
                         <span><?=$tupla['vigencia'] ? 'Activo': 'Inactivo' ?></span>
-                        <span><a href="">Editar</a></span>
-                        <span><button  >Eliminar</button></span>
+                        <span><a class='back' href="">Editar</a> <a class='back'>Eliminar</a></span>
+                        
                     </li>
                 <?php
                 }
