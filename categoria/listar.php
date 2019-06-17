@@ -25,7 +25,7 @@ include '../header.php';
                         <span><?=$tupla['descripcion']?></span>
                         <span><?=$tupla['vigencia'] ? 'Activo': 'Inactivo' ?></span>
                         <span><a href="">Editar</a></span>
-                        <span><button>Eliminar</button></span>
+                        <span><button  >Eliminar</button></span>
                     </li>
                 <?php
                 }

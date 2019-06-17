@@ -104,7 +104,7 @@
                 require '../conectar.php';
                 $aux = $conexion->exec($sql);
                 if ($aux > 0) {
-                    // header('location:listar.php');
+                     header('location:listar.php');
                 }
             } catch (PDOexception $e) {
                 echo $e->getMessage();
