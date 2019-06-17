@@ -24,6 +24,21 @@
 }
 
 form{
-   margin: 5%;
-
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    
 }
+.option{
+    width: 60%
+}
+.option__item{
+    margin: 1em 0em;
+    display: flex;
+    justify-content: space-between;
+}
+.option__item input, select{
+   width: 70%;
+   border-radius: 5%;
+}
+

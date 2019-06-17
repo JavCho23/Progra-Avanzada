@@ -69,8 +69,8 @@ if (isset($_POST['name'],$_POST['precio'],$_POST['precioMinimo'])) {
             ?>
         </select>
     </div>
-
+    <button type="submit">Registrar</button>
 </div>
 
-<button type="submit">Registrar</button>
+
 </form>
