@@ -27,7 +27,11 @@ form{
     margin: 5%;
     display: flex;
     justify-content: center;
+    align-items: center
     
+}
+form input{
+    margin: 0 0.5em
 }
 .option{
     width: 60%
@@ -40,5 +44,8 @@ form{
 .option__item input, select{
    width: 70%;
    border-radius: 5%;
+   height: 2em;
 }
-
+.inactivo{
+    color: red;
+}

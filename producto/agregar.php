@@ -4,12 +4,18 @@ include '../header.php';
 if (isset($_POST['name'],$_POST['precio'],$_POST['precioMinimo'])) {
         $name = $_POST['name'];
         $precio = $_POST['precio'];
-        $precioMinimo = $_POST['precioMinimo'];
+        $precioMinimo = (isset($_POST['precioMinimo'])) ? $_POST['precioMinimo'] : " " ;;
         $tipo = $_POST['tipo'];
         $negociable = (isset($_POST['negociable'])) ? true : false ;
         $categoria = $_POST['categoria'];
-        $sql = "INSERT INTO producto(nombre,precio,precioMinimo,tipo,negociable,vigencia,codigoCategoria)
-        values('$name','$precio','$precioMinimo','$tipo','$negociable',1,'$categoria')";
+        if ($negociable) {
+                $sql = "INSERT INTO producto(nombre,precio,precioMinimo,tipo,negociable,vigencia,codigoCategoria)
+                values('$name','$precio','$precioMinimo','$tipo','$negociable',1,'$categoria')";
+           
+        }else {
+            $sql = "INSERT INTO producto(nombre,precio,precioMinimo,tipo,negociable,vigencia,codigoCategoria)
+            values('$name','$precio',NULL,'$tipo','$negociable',1,'$categoria')";
+        }
         try {
             require '../conectar.php';
             $aux = $conexion->exec($sql);
@@ -46,7 +52,7 @@ if (isset($_POST['name'],$_POST['precio'],$_POST['precioMinimo'])) {
     </div>
     <div class="option__item">
         <label for="desc">Precio Mínimo</label>
-        <input type="number" name="precioMinimo">
+        <input type="number"  name="precioMinimo">
     </div>
     <div class="option__item">
         <label for="desc">Categoria</label>

@@ -9,8 +9,8 @@ if (!empty($_POST)) {
   $usuario = $_POST['usuario'];
   $clave = $_POST['clave'];
   $personal = $_POST['personal'];
-
-  $query = "UPDATE usuario SET usuario='$usuario', clave='$clave', id_personal='$personal' WHERE id=$id";
+  $tipo = $_POST['tipo'];
+  $query = "UPDATE usuario SET usuario='$usuario', clave='$clave', id_personal='$personal', tipo= '$tipo' WHERE id=$id";
 
   try {
     require '../conectar.php';
@@ -39,7 +39,12 @@ if (!empty($_GET)) {
 
         <label for="clave">Clave</label>
         <input type="text" name="clave" value="<?= $user['clave'] ?>">
-
+        <label for="tipo">Tipo</label>
+        <select name="tipo" id="">
+            <option value="A">Andministrador</option>
+            <option value="J">Jefe</option>
+            <option value="V">Vendedor</option>
+        </select>
         <label for="personal">Personal</label>
         <select name="personal">
           <?php

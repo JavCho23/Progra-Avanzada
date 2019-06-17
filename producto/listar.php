@@ -40,7 +40,7 @@ if (isset($_POST['buscar'])) {
                 $data = $conexion->query($sql);
                 foreach ($data as $tupla) { 
                     ?>
-                    <li class='list__item'>
+                    <li class='list__item <?= $tupla['vigencia'] ?  " " : "inactivo" ;?>'>
                         <span><?=$tupla['codigo']?></span>
                         <span><?=$tupla['nombre']?></span>
                         <span><?=$tupla['precio']?></span>

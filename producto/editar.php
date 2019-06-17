@@ -33,17 +33,17 @@
                     <div class="option__item">
                         <label for="desc">Tipo</label>
                         <select name="tipo" id="">
-                            <option value="B"  selected="<?= ('B'== $tipo) ? "true" : "false" ;?>" >Bien</option>
-                            <option value="S" selected="<?= ('S'== $tipo) ? "true" : "false" ;?>">Servicio</option>
+                            <option value="B"  <?= ('B'== $tipo) ? "selected" : " " ;?> >Bien</option>
+                            <option value="S" <?= ('S'== $tipo) ? "selected" : " " ;?>>Servicio</option>
                         </select>
                     </div>
                     <div class="option__item">
                         <label for="desc">Negociable</label>
-                        <input type="checkbox" name="negociable" <?= ($negociable == 1) ? "checked" : " " ;?>>
+                        <input type="checkbox" name="negociable" <?= ($negociable) ? "checked" : " " ;?>>
                     </div>
                     <div class="option__item">
                         <label for="desc">Vigencia</label>
-                        <input type="checkbox" name="vigencia" <?= ($vigencia==1) ? "checked" : " " ;?>>
+                        <input type="checkbox" name="vigencia" <?= ($vigencia) ? "checked" : " " ;?>>
                     </div>
                     <div class="option__item">
                         <label for="desc">Precio Mínimo</label>
@@ -51,8 +51,7 @@
                     </div>
                     <div class="option__item">
                         <label for="desc">Categoria</label>
-                        <select name="categoria" id="" disabled >
-                            <option value="-1">Seleccionar</option>
+                        <select name="categoria" id=""  >
                             <?php
                             $sql= "Select * from categoria ";
                             try {
@@ -61,8 +60,7 @@
                                 foreach ($datos as $tupla) {
                                     ?>
                                     <option value="<?=$tupla['codigo']?>"
-                                    selected="
-                                    <?= ($tupla['codigo'] == $codigoCategoria) ? "true" : "false" ;?>"
+                                    <?= ($tupla['codigo'] == $codigoCategoria) ? " selected" : " " ;?>
                                     >
                                     <?=$tupla['nombre']?></option>
                                     <?php
@@ -73,8 +71,9 @@
                             ?>
                         </select>
                     </div>
+                    <button type="submit">Actualizar</button>
                 </div>
-                <button type="submit">Actualizar</button>
+               
                 </form>
         <?php
             }
@@ -92,14 +91,28 @@
             $tipo = $_POST['tipo'];
             $negociable = (isset($_POST['negociable'])) ? 1 : 0 ;
             $vigencia = (isset($_POST['vigencia'])) ? true : false ;
-            $sql = "UPDATE  producto
+            if ($negociable) {
+                $sql = "UPDATE  producto
                     set nombre = '$name', 
                     precio = '$precio', 
                     negociable = '$negociable', 
                     precioMinimo = '$precioMinimo',
-                    vigencia = '$vigencia'  
+                    vigencia = '$vigencia',
+                    tipo='$tipo'  
                     where codigo='$codigo'
                     ";
+            } else {
+                $sql = "UPDATE  producto
+                    set nombre = '$name', 
+                    precio = '$precio', 
+                    negociable = '$negociable', 
+                    precioMinimo = NULL,
+                    vigencia = '$vigencia',
+                    tipo='$tipo'  
+                    where codigo='$codigo'
+                    ";
+            }
+            
             try {
                 require '../conectar.php';
                 $aux = $conexion->exec($sql);
